@@ -45,7 +45,8 @@ class docker_gogs(ShutItModule):
 		shutit.send_file('/home/git/start_gogs.sh',"""#!/bin/bash
 export USER=git
 sudo /root/start_mysql.sh
-/go/src/github.com/gogits/gogs/gogs web
+cd /go/src/github.com/gogits/gogs
+./gogs web
 """)
 		shutit.send('chmod +x /home/git/start_gogs.sh')
 		shutit.send('chown git:git /home/git/start_gogs.sh')
